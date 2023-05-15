@@ -5,4 +5,5 @@ module com.example.ticketstore {
 
     opens com.example.ticketstore to javafx.fxml;
     exports com.example.ticketstore;
+    exports com.example.ticketstore.controllers;
 }
