@@ -13,9 +13,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("fxmls/AdminPanel.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("AdminPanel.fxml"));
 
-            Image admin_icon = new Image("file:src/main/resources/com/example/ticketstore/icons/admin_panel.png"); // daca vreau sa mearga poza,
+            Image admin_icon = new Image("file:src/main/resources/com/example/ticketstore/admin_panel.png"); // daca vreau sa mearga poza,
             stage.getIcons().add(admin_icon);
 
             Scene scene = new Scene(root);
