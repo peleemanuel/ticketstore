@@ -1,5 +1,6 @@
-package com.example.ticketstore;
+package com.example.ticketstore.controllers;
 
+import com.example.ticketstore.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,7 @@ public class LoginController {
 
     public void loginAsUser(ActionEvent event) throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("User.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxmls/User.fxml"));
             Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             Parent root1 = (Parent) fxmlLoader.load();
