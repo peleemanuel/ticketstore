@@ -1,4 +1,4 @@
-package com.example.ticketstore;
+package com.example.ticketstore.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;

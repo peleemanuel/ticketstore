@@ -13,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Parent root = FXMLLoader.load(Main.class.getResource("fxmls/Login.fxml"));
 
             Image icon = new Image("file:src/main/resources/com/example/ticketstore/person_icon.png"); // daca vreau sa mearga poza,
             stage.getIcons().add(icon);

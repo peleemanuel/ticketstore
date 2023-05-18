@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0"
             prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.ticketstore.LoginController">
+            fx:controller="com.example.ticketstore.controllers.LoginController">
     <children>
         <Label alignment="CENTER" layoutX="245.0" layoutY="64.0" text="Login">
             <font>
