@@ -32,5 +32,6 @@ public class RegistrationController {
         } catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
         }
+
     }
 }
