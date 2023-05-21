@@ -1,1 +1,1 @@
-.\gradlew clean build
+.\mvnw clean install

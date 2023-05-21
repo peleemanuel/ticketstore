@@ -1,5 +1,7 @@
 package com.example.ticketstore;
 
+import com.example.ticketstore.utils.FileSystemService;
+import com.example.ticketstore.utils.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,12 +10,28 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Main extends Application {
+
+    private void initDirectory() {
+        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
+        if (!Files.exists(applicationHomePath))
+            applicationHomePath.toFile().mkdirs();
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(Main.class.getResource("fxmls/Login.fxml"));
+
+            initDirectory();
+            UserService.initDatabase();
+            Parent root = FXMLLoader.load(Main.class.getResource("fxmls/Register.fxml"));
+
 
             Image icon = new Image("file:src/main/resources/com/example/ticketstore/person_icon.png"); // daca vreau sa mearga poza,
             stage.getIcons().add(icon);
