@@ -27,11 +27,13 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
+
             initDirectory();
             UserService.initDatabase();
             Parent root = FXMLLoader.load(Main.class.getResource("fxmls/Register.fxml"));
 
-            Image icon = new Image("file:src/main/resources/com/example/ticketstore/icons/person_icon.png"); // daca vreau sa mearga poza,
+
+            Image icon = new Image("file:src/main/resources/com/example/ticketstore/person_icon.png"); // daca vreau sa mearga poza,
             stage.getIcons().add(icon);
 
             Scene scene = new Scene(root);
