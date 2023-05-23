@@ -1,7 +1,7 @@
 module com.example.ticketstore {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.sql;
+    
     requires nitrite;
 
     exports com.example.ticketstore;
