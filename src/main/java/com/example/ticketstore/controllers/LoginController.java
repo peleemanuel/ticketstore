@@ -47,6 +47,19 @@ public class LoginController implements Initializable {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
+        if (username.isEmpty()) {
+            setLblError(Color.BLACK, "Introduceti un username.");
+            return;
+        }
+        if (password.isEmpty()) {
+            setLblError(Color.BLACK, "Introduceti o parola.");
+            return;
+        }
+        if (role.getValue() == null) {
+            setLblError(Color.BLACK, "Introduceti un rol");
+            return;
+        }
+
         try {
             UserService.loadUsersFromDatabase();
             if (UserService.checkPassword(username, password) && UserService.checkUserExists(username)) {
@@ -80,12 +93,7 @@ public class LoginController implements Initializable {
             UserService.closeDatabase();
         }
 
-        if (username == null || username.isEmpty()) {
-            setLblError(Color.BLACK, "Introduceti un username.");
-        }
-        if (password == null || password.isEmpty()) {
-            setLblError(Color.BLACK, "Introduceti o parola.");
-        }
+
     }
 
     public void cancel(ActionEvent event) throws IOException {
