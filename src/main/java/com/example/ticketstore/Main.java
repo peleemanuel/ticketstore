@@ -17,24 +17,22 @@ import org.slf4j.*; // removes unwanted slf4j warnings
 
 public class Main extends Application {
 
-    private void initDirectory() {
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            applicationHomePath.toFile().mkdirs();
-    }
+    // private void initDirectory() {
+    //     Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
+    //     if (!Files.exists(applicationHomePath))
+    //         applicationHomePath.toFile().mkdirs();
+    // }
 
     @Override
     public void start(Stage stage) throws IOException {
         try {
 
-            initDirectory();
-            UserService.initDatabase();
+            // initDirectory();
+            // UserService.initDatabase();
+
             Parent root = FXMLLoader.load(Main.class.getResource("fxmls/Main.fxml"));
-
-
             Image icon = new Image("file:src/main/resources/com/example/ticketstore/icons/person_icon.png"); // daca vreau sa mearga poza,
             stage.getIcons().add(icon);
-
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Login");
