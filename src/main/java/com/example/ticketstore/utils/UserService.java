@@ -84,9 +84,9 @@ public class UserService {
         return encodedPassword.toString();
     }
 
-    public static boolean checkPassword(String salt, String username, String password) {
+    public static boolean checkPassword(String username, String password) {
         MessageDigest md = getMessageDigest();
-        md.update(salt.getBytes(StandardCharsets.UTF_8));
+        md.update(username.getBytes(StandardCharsets.UTF_8));
 
         User user = userRepository.find(ObjectFilters.eq("username", username)).firstOrDefault();
 
