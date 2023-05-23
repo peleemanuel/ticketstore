@@ -29,7 +29,7 @@ public class Main extends Application {
 
             initDirectory();
             UserService.initDatabase();
-            Parent root = FXMLLoader.load(Main.class.getResource("fxmls/Login.fxml"));
+            Parent root = FXMLLoader.load(Main.class.getResource("fxmls/Main.fxml"));
 
 
             Image icon = new Image("file:src/main/resources/com/example/ticketstore/person_icon.png"); // daca vreau sa mearga poza,
