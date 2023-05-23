@@ -2,6 +2,7 @@ C:\ticketstore\src\main\java\com\example\ticketstore\utils\FileSystemService.jav
 C:\ticketstore\src\main\java\com\example\ticketstore\controllers\LoginController.java
 C:\ticketstore\src\main\java\com\example\ticketstore\exceptions\UsernameAlreadyExistsException.java
 C:\ticketstore\src\main\java\com\example\ticketstore\Main.java
+C:\ticketstore\src\main\java\com\example\ticketstore\controllers\MainPageController.java
 C:\ticketstore\src\main\java\com\example\ticketstore\utils\UserService.java
 C:\ticketstore\src\main\java\module-info.java
 C:\ticketstore\src\main\java\com\example\ticketstore\models\User.java

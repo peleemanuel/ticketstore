@@ -2,6 +2,7 @@ com\example\ticketstore\controllers\UserPanelController.class
 com\example\ticketstore\controllers\LoginController.class
 com\example\ticketstore\utils\UserService.class
 com\example\ticketstore\exceptions\UsernameAlreadyExistsException.class
+com\example\ticketstore\controllers\MainPageController.class
 com\example\ticketstore\models\User.class
 com\example\ticketstore\utils\FileSystemService.class
 module-info.class

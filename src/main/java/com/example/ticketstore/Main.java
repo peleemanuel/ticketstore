@@ -32,7 +32,7 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(Main.class.getResource("fxmls/Main.fxml"));
 
 
-            Image icon = new Image("file:src/main/resources/com/example/ticketstore/person_icon.png"); // daca vreau sa mearga poza,
+            Image icon = new Image("file:src/main/resources/com/example/ticketstore/icons/person_icon.png"); // daca vreau sa mearga poza,
             stage.getIcons().add(icon);
 
             Scene scene = new Scene(root);
