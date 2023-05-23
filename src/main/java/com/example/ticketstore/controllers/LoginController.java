@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -23,15 +24,19 @@ public class LoginController implements Initializable {
     @FXML
     private Label lblError;
     @FXML
-    private TextField userTextField;
+    private TextField usernameField;
     @FXML
-    private TextField passwordTextField;
+    private TextField passwordField;
     @FXML
-    private Button btnSignIn;
+    private Button loginButton;
+    @FXML
+    private Button cancelButton;
+    @FXML
+    private ChoiceBox<String> role;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        role.getItems().addAll("Client", "Admin");
     }
 
     public void login(ActionEvent event) throws IOException {

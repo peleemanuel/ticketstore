@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.slf4j.*; // removes unwanted slf4j warnings
+
 public class Main extends Application {
 
     private void initDirectory() {

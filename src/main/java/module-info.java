@@ -1,8 +1,9 @@
 module com.example.ticketstore {
     requires javafx.controls;
     requires javafx.fxml;
-    
+
     requires nitrite;
+    requires org.slf4j;
 
     exports com.example.ticketstore;
     opens com.example.ticketstore;
