@@ -1,1 +1,2 @@
-.\gradlew run
+.\mvnw javafx:run
+
