@@ -31,7 +31,7 @@ public class LoginController {
     private TextField usernameField;
     @FXML
     private TextField passwordField;
-    
+
     public void login(ActionEvent event) throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
@@ -104,5 +104,6 @@ public class LoginController {
         lblError.setText(text);
         System.out.println(text);
     }
+
 
 }
