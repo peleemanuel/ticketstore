@@ -1,7 +1,5 @@
 package com.example.ticketstore;
 
-import com.example.ticketstore.utils.FileSystemService;
-import com.example.ticketstore.utils.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,10 +8,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
-import org.slf4j.*; // removes unwanted slf4j warnings
 
 public class Main extends Application {
     @Override

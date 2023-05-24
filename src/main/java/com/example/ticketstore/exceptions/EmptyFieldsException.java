@@ -1,7 +1,7 @@
 package com.example.ticketstore.exceptions;
 
-public class EmptyUsernameOrPasswordException extends Exception {
-    public EmptyUsernameOrPasswordException() {
+public class EmptyFieldsException extends Exception {
+    public EmptyFieldsException() {
         super(String.format("Username or password cannot be empty!"));
     }
 }

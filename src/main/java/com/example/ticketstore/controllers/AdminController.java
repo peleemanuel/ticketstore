@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class AdminPanelController implements Initializable {
+public class AdminController implements Initializable {
 
     ArrayList<String> words = new ArrayList<>(
             Arrays.asList("test", "dnsaqkidfnsa", "sdasds")
