@@ -70,6 +70,12 @@ public class UserService {
         return existingUser != null;
     }
 
+    public static User getUser(String username) {
+        User existingUser = userRepository.find(ObjectFilters.eq("username", username)).firstOrDefault();
+
+        return existingUser;
+    }
+
     private static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
