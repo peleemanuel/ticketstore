@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.ticketstore.fxmls.AddEvent">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ticketstore.controllers.AddEventController">
    <children>
       <Label layoutX="232.0" layoutY="22.0" text="Add Event">
          <font>
@@ -48,7 +47,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="349.0" layoutY="291.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="136.0" text="Cancel">
+      <Button layoutX="349.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToAdminHome" prefHeight="46.0" prefWidth="136.0" text="Cancel">
          <font>
             <Font size="18.0" />
          </font>

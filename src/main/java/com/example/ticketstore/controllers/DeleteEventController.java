@@ -10,8 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AddEventController {
-
+public class DeleteEventController {
     @FXML
     public void switchToAdminHome(ActionEvent event) throws IOException {
         Parent homeRoot = FXMLLoader.load(getClass().getResource("/com/example/ticketstore/fxmls/Admin.fxml"));
@@ -20,6 +19,4 @@ public class AddEventController {
         stage.setScene(scene);
         stage.show();
     }
-
-
 }
