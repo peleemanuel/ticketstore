@@ -55,8 +55,16 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="116.0" layoutY="289.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" text="Buy" />
-      <Button layoutX="341.0" layoutY="289.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" text="Cancel" />
+      <Button layoutX="116.0" layoutY="289.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" text="Buy">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="341.0" layoutY="289.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="54.0" prefWidth="108.0" text="Cancel">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
       <Label layoutX="55.0" layoutY="222.0" text="Numar bilete dorite:">
          <font>
             <Font size="18.0" />

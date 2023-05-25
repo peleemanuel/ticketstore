@@ -3,6 +3,7 @@ package com.example.ticketstore.controllers;
 
 import com.example.ticketstore.Main;
 import com.example.ticketstore.models.Event;
+import com.example.ticketstore.utils.ConcertRetain;
 import com.example.ticketstore.utils.EventService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -52,17 +53,17 @@ public class UserPanelController implements Initializable {
             eventLists.add(tempFullName);
         }
         listView.getItems().addAll(eventLists);
-        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                System.out.println(listView.getSelectionModel().getSelectedItem());
+                ConcertRetain.setConcertName(listView.getSelectionModel().getSelectedItem());
             }
         });
-
     }
 
     @FXML
     public void goToArtist(MouseEvent event) {
+
         try {
             EventService.closeDatabase();
             Parent homeRoot = FXMLLoader.load(getClass().getResource("/com/example/ticketstore/fxmls/ConcertView.fxml"));
