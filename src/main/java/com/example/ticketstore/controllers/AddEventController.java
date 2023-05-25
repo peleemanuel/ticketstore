@@ -4,6 +4,7 @@ import com.example.ticketstore.exceptions.EventAlreadyExistsException;
 import com.example.ticketstore.utils.EventService;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -28,14 +29,17 @@ public class AddEventController {
     private TextField dateField;
     @FXML
     private TextField ticketNumberField;
+
     @FXML
     public void switchToAdmin(ActionEvent event) throws IOException {
+        EventService.closeDatabase();
         Parent homeRoot = FXMLLoader.load(getClass().getResource("/com/example/ticketstore/fxmls/Admin.fxml"));
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(homeRoot);
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     public void saveButton(ActionEvent e) throws IOException {
         PauseTransition delay = new PauseTransition(Duration.seconds(1));
@@ -49,9 +53,9 @@ public class AddEventController {
         });
 
         try {
+            EventService.loadEventsFromDatabase();
             EventService.addEvent(titleField.getText(), artistField.getText(), dateField.getText(), Integer.parseInt(ticketNumberField.getText()));
             errorLabel.setText("Event added!");
-            EventService.closeDatabase();
             delay.play();
         } catch (EventAlreadyExistsException ex) {
             errorLabel.setText(ex.getMessage());

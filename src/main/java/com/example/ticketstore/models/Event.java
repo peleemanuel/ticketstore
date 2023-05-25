@@ -12,6 +12,9 @@ public class Event {
 
     private int ticketNumbers;
 
+    public Event() {
+    }
+
     public Event(String title, String artist, String data, int ticketNumbers) {
         this.title = title;
         this.artist = artist;

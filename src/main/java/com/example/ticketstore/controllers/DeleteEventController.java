@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class DeleteEventController implements Initializable{
+public class DeleteEventController implements Initializable {
     @FXML
     private Label errorLabel;
     @FXML
@@ -29,23 +29,24 @@ public class DeleteEventController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         EventService.loadEventsFromDatabase();
+        System.out.println("Am deschis pagina de delete");
         List<Event> myList = EventService.getEvents();
-        for (Event event: myList) {
+        for (Event event : myList) {
             eventChoiceBox.getItems().add(event.getTitle());
-            System.out.println(event.getTitle());
         }
     }
 
     @FXML
     public void switchToAdmin(ActionEvent event) throws IOException {
+        EventService.closeDatabase();
         Parent homeRoot = FXMLLoader.load(getClass().getResource("/com/example/ticketstore/fxmls/Admin.fxml"));
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(homeRoot);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void confirmDeleteEvent(ActionEvent e){
+    public void confirmDeleteEvent(ActionEvent e) {
 
         PauseTransition delay = new PauseTransition(Duration.seconds(1));
 
@@ -62,8 +63,7 @@ public class DeleteEventController implements Initializable{
             EventService.deleteEvent(deletingEvent);
             errorLabel.setText("Deleted succesfully");
             delay.play();
-        }
-        catch (Exception exception){
+        } catch (Exception exception) {
             errorLabel.setText("Cannot delete");
             exception.printStackTrace();
         }
