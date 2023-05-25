@@ -4,15 +4,19 @@ package com.example.ticketstore.controllers;
 import com.example.ticketstore.Main;
 import com.example.ticketstore.models.Event;
 import com.example.ticketstore.utils.EventService;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,7 +29,7 @@ import java.util.stream.Collectors;
 
 public class UserPanelController implements Initializable {
 
-    ArrayList<String> eventLists = new ArrayList<>();
+    private ArrayList<String> eventLists = new ArrayList<>();
 
     @FXML
     private TextField searchBar;
@@ -46,7 +50,28 @@ public class UserPanelController implements Initializable {
         for (Event event : myList) {
             String tempFullName = event.getTitle() + ", " + event.getArtist() +  ", " + event.getData() ;
             eventLists.add(tempFullName);
-            listView.getItems().add(tempFullName);
+        }
+        listView.getItems().addAll(eventLists);
+        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                System.out.println(listView.getSelectionModel().getSelectedItem());
+            }
+        });
+
+    }
+
+    @FXML
+    public void goToArtist(MouseEvent event) {
+        try {
+            EventService.closeDatabase();
+            Parent homeRoot = FXMLLoader.load(getClass().getResource("/com/example/ticketstore/fxmls/ConcertView.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(homeRoot);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
