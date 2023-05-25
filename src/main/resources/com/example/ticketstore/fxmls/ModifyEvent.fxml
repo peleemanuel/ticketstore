@@ -15,9 +15,10 @@
                 <Font size="30.0"/>
             </font>
         </Label>
-        <TextField layoutX="277.0" layoutY="190.0" AnchorPane.topAnchor="180.0"/>
-        <TextField layoutX="277.0" layoutY="145.0" AnchorPane.topAnchor="135.0"/>
-        <TextField layoutX="277.0" layoutY="235.0" AnchorPane.topAnchor="225.0"/>
+        <ChoiceBox fx:id="eventChoiceBox" layoutX="277.0" layoutY="91.0" prefWidth="150.0"/>
+        <TextField fx:id="artistField" layoutX="277.0" layoutY="145.0" AnchorPane.topAnchor="135.0"/>
+        <TextField fx:id="dateField" layoutX="277.0" layoutY="190.0" AnchorPane.topAnchor="180.0"/>
+        <TextField fx:id="ticketNumbersField" layoutX="277.0" layoutY="235.0" AnchorPane.topAnchor="225.0"/>
         <Label layoutX="205.60000610351562" layoutY="100.0" text="Title" AnchorPane.rightAnchor="370.0"
                AnchorPane.topAnchor="90.0">
             <font>
@@ -30,7 +31,7 @@
                 <Font size="18.0"/>
             </font>
         </Label>
-        <Label layoutX="202.39999389648438" layoutY="190.0" text="Data" AnchorPane.rightAnchor="370.0"
+        <Label layoutX="202.39999389648438" layoutY="190.0" text="Date" AnchorPane.rightAnchor="370.0"
                AnchorPane.topAnchor="180.0">
             <font>
                 <Font size="18.0"/>
@@ -59,6 +60,5 @@
                 <Font size="18.0"/>
             </font>
         </Button>
-        <ChoiceBox layoutX="277.0" layoutY="91.0" prefWidth="150.0"/>
     </children>
 </AnchorPane>
