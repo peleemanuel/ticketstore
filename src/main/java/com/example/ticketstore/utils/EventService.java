@@ -2,6 +2,7 @@ package com.example.ticketstore.utils;
 
 import com.example.ticketstore.exceptions.*;
 import com.example.ticketstore.models.Event;
+import org.dizitart.no2.Document;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
@@ -37,6 +38,10 @@ public class EventService {
         catch (EventDoesNotExistsException e){
             e.printStackTrace();
         }
+    }
+
+    public static void modifyEvent(Event event){
+            eventRepository.update(ObjectFilters.eq("title",event.getTitle()),event);
     }
 
     private static void checkEventDoesNotAlreadyExistOrIsNull(String title) throws EventAlreadyExistsException,EmptyFieldsException {
