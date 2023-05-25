@@ -12,9 +12,8 @@ public class EventService {
     private static Nitrite db;
     private static ObjectRepository<Event> eventRepository;
 
-    public static void loadUsersFromDatabase() {
+    public static void loadEventsFromDatabase() {
         db = Nitrite.builder().compressed().filePath("event-database.db").openOrCreate();
-
         eventRepository = db.getRepository(Event.class);
     }
 
