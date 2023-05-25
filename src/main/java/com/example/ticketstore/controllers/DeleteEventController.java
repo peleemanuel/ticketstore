@@ -29,7 +29,6 @@ public class DeleteEventController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         EventService.loadEventsFromDatabase();
-        System.out.println("Am deschis pagina de delete");
         List<Event> myList = EventService.getEvents();
         for (Event event : myList) {
             eventChoiceBox.getItems().add(event.getTitle());
