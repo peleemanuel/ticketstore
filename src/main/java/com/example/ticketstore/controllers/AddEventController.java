@@ -2,6 +2,7 @@ package com.example.ticketstore.controllers;
 
 import com.example.ticketstore.exceptions.EventAlreadyExistsException;
 import com.example.ticketstore.utils.EventService;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -36,15 +38,21 @@ public class AddEventController {
     }
     @FXML
     public void saveButton(ActionEvent e) throws IOException {
+        PauseTransition delay = new PauseTransition(Duration.seconds(1));
+
+        delay.setOnFinished(event -> {
+            try {
+                switchToAdmin(e);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
         try {
-            EventService.loadEventsFromDatabase();
             EventService.addEvent(titleField.getText(), artistField.getText(), dateField.getText(), Integer.parseInt(ticketNumberField.getText()));
             errorLabel.setText("Event added!");
-            Parent homeRoot = FXMLLoader.load(getClass().getResource("/com/example/ticketstore/fxmls/Admin.fxml"));
-            Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-            Scene scene = new Scene(homeRoot);
-            stage.setScene(scene);
-            stage.show();
+            EventService.closeDatabase();
+            delay.play();
         } catch (EventAlreadyExistsException ex) {
             errorLabel.setText(ex.getMessage());
         }

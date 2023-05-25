@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class ModifyEventController {
     @FXML
-    public void switchToAdminHome(ActionEvent event) throws IOException {
+    public void switchToAdmin(ActionEvent event) throws IOException {
         Parent homeRoot = FXMLLoader.load(getClass().getResource("/com/example/ticketstore/fxmls/Admin.fxml"));
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(homeRoot);

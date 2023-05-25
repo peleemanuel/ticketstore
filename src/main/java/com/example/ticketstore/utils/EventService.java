@@ -3,6 +3,7 @@ package com.example.ticketstore.utils;
 import com.example.ticketstore.exceptions.*;
 import com.example.ticketstore.models.Event;
 import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.objects.filters.ObjectFilters;
 
@@ -26,8 +27,16 @@ public class EventService {
         } catch (EmptyFieldsException | EventAlreadyExistsException e) {
             e.printStackTrace();
         }
-        closeDatabase();
 
+    }
+
+    public static void deleteEvent(String title) throws EventDoesNotExistsException{
+        try {
+            eventRepository.remove(ObjectFilters.eq("title",title));
+        }
+        catch (EventDoesNotExistsException e){
+            e.printStackTrace();
+        }
     }
 
     private static void checkEventDoesNotAlreadyExistOrIsNull(String title) throws EventAlreadyExistsException,EmptyFieldsException {
@@ -49,7 +58,7 @@ public class EventService {
         return existingEvent != null;
     }
 
-    public static Event getUser(String title) {
+    public static Event getEvent(String title) {
         Event existingEvent = eventRepository.find(ObjectFilters.eq("title", title)).firstOrDefault();
 
         return existingEvent;
