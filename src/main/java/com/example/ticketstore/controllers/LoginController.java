@@ -3,6 +3,7 @@ package com.example.ticketstore.controllers;
 import com.example.ticketstore.Main;
 import com.example.ticketstore.exceptions.UserDoesNotExistException;
 import com.example.ticketstore.models.User;
+import com.example.ticketstore.utils.EventService;
 import com.example.ticketstore.utils.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

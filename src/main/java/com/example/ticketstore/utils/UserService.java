@@ -13,22 +13,11 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import java.util.Objects;
-
-import static com.example.ticketstore.utils.FileSystemService.getPathToFile;
 
 public class UserService {
 
     private static Nitrite db;
     private static ObjectRepository<User> userRepository;
-
-    // public static void initDatabase() {
-    //     Nitrite database = Nitrite.builder()
-    //             .filePath(getPathToFile("registration-data.db").toFile())
-    //             .openOrCreate("test", "test");
-    //
-    //     userRepository = database.getRepository(User.class);
-    // }
 
     public static void loadUsersFromDatabase() {
         db = Nitrite.builder().compressed().filePath("user-database.db").openOrCreate();
@@ -37,8 +26,6 @@ public class UserService {
     }
 
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException, CouldNotWriteUsersException {
-        // checkUserDoesNotAlreadyExist(username);
-        // userRepository.insert(new User(username, encodePassword(username, password), role));
 
         try {
             checkUserDoesNotAlreadyExistOrIsNull(username);
