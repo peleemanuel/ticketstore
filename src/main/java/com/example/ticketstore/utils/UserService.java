@@ -108,11 +108,6 @@ public class UserService {
         return md;
     }
 
-    public static List<User> getUsers() {
-        // Retrieve all users from the Nitrite database
-        return userRepository.find().toList();
-    }
-
     public static void closeDatabase() {
         db.close();
     }

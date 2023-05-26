@@ -18,7 +18,6 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -71,11 +70,13 @@ public class ConcertViewController implements Initializable {
             goToHome(e);
         });
 
-        if(EventService.veifyEnoughSpaceAtConcert(titleLabel.getText(),currentValue))
+        if(EventService.verifyEnoughSpaceAtConcert(titleLabel.getText(),currentValue)) {
+            EventService.buyTickets(titleLabel.getText(),currentValue);
             errLabel.setText("Enough space, tickets bought");
+            delay.play();
+        }
         else
             errLabel.setText("Not enough tickets remaining to fulfill order");
-
     }
 
     public void goToHome(ActionEvent event) {
