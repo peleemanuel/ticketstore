@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="569.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ticketstore.controllers.UserPanelController">
+<AnchorPane prefHeight="569.0" prefWidth="650.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.ticketstore.controllers.UserPanelController">
     <children>
         <TextField fx:id="searchBar" layoutX="69.0" layoutY="65.0" prefHeight="50.0" prefWidth="445.0">
             <font>
