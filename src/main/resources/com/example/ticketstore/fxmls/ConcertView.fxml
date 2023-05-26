@@ -7,7 +7,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ticketstore.controllers.ConcertViewController">
    <children>
       <Text layoutX="257.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Concert" wrappingWidth="84.0947265625">
@@ -20,7 +19,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="230.0" layoutY="75.0" prefHeight="27.0" prefWidth="285.0">
+      <Label fx:id="titleLabel" layoutX="230.0" layoutY="75.0" prefHeight="27.0" prefWidth="285.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -30,7 +29,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="230.0" layoutY="111.0" prefHeight="27.0" prefWidth="285.0">
+      <Label fx:id="artistLabel" layoutX="230.0" layoutY="111.0" prefHeight="27.0" prefWidth="285.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -40,7 +39,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="230.0" layoutY="148.0" prefHeight="27.0" prefWidth="285.0">
+      <Label fx:id="dataLabel" layoutX="230.0" layoutY="148.0" prefHeight="27.0" prefWidth="285.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -50,7 +49,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="230.0" layoutY="186.0" prefHeight="27.0" prefWidth="285.0">
+      <Label fx:id="ticketNumberLabel" layoutX="230.0" layoutY="186.0" prefHeight="27.0" prefWidth="285.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -70,6 +69,6 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Spinner layoutX="230.0" layoutY="222.0" prefHeight="26.0" prefWidth="142.0" />
+      <Spinner fx:id="ticketSpinner" editable="true" layoutX="230.0" layoutY="222.0" prefHeight="26.0" prefWidth="142.0" />
    </children>
 </AnchorPane>

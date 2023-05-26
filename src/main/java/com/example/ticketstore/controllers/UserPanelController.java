@@ -3,7 +3,6 @@ package com.example.ticketstore.controllers;
 
 import com.example.ticketstore.Main;
 import com.example.ticketstore.models.Event;
-import com.example.ticketstore.utils.ConcertRetain;
 import com.example.ticketstore.utils.EventService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,14 +21,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class UserPanelController implements Initializable {
-
+    private List<Event> myList;
+    private String touchedConcertName;
     private ArrayList<String> eventLists = new ArrayList<>();
 
     @FXML
@@ -47,7 +44,7 @@ public class UserPanelController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         EventService.loadEventsFromDatabase();
-        List<Event> myList = EventService.getEvents();
+         myList = EventService.getEvents();
         for (Event event : myList) {
             String tempFullName = event.getTitle() + ", " + event.getArtist() +  ", " + event.getData() ;
             eventLists.add(tempFullName);
@@ -56,7 +53,7 @@ public class UserPanelController implements Initializable {
             listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                ConcertRetain.setConcertName(listView.getSelectionModel().getSelectedItem());
+
             }
         });
     }
@@ -66,7 +63,22 @@ public class UserPanelController implements Initializable {
 
         try {
             EventService.closeDatabase();
-            Parent homeRoot = FXMLLoader.load(getClass().getResource("/com/example/ticketstore/fxmls/ConcertView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/ticketstore/fxmls/ConcertView.fxml"));
+            Parent homeRoot = loader.load();
+            touchedConcertName = listView.getSelectionModel().getSelectedItem();
+            int commaIndex = touchedConcertName.indexOf(",");
+            String extractedString = touchedConcertName.substring(0, commaIndex);
+
+            for(Event events: myList){
+                if(events.getTitle().contains(extractedString)){
+                    ConcertViewController concertViewController = loader.getController();
+                    concertViewController.setData(events);
+                    break;
+                }
+            }
+
+
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(homeRoot);
             stage.setScene(scene);
