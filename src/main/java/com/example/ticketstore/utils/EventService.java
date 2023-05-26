@@ -56,6 +56,10 @@ public class EventService {
 
     }
 
+    public  static boolean veifyEnoughSpaceAtConcert(String title, int wantedTickets){
+        Event existingEvent = eventRepository.find(ObjectFilters.eq("title", title)).firstOrDefault();
+        return wantedTickets <= existingEvent.getTicketNumbers();
+    }
     public static boolean checkEventExists(String title) throws UserDoesNotExistException {
         // if the user is found then return True
         Event existingEvent = eventRepository.find(ObjectFilters.eq("title", title)).firstOrDefault();
