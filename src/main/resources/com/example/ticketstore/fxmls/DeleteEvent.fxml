@@ -17,7 +17,7 @@
         <ChoiceBox fx:id="eventChoiceBox" layoutX="278.0" layoutY="111.0" prefHeight="35.0" prefWidth="234.0"/>
         <Button layoutX="300.0" layoutY="256.0" mnemonicParsing="false" onAction="#switchToAdmin" prefHeight="50.0"
                 prefWidth="116.0" text="Cancel" AnchorPane.rightAnchor="140.0"/>
-        <Button layoutX="127.0" layoutY="256.0" mnemonicParsing="false" onAction="#confirmDeleteEvent" prefHeight="50.0"
+        <Button id="confirmDeleteEventButton" layoutX="127.0" layoutY="256.0" mnemonicParsing="false" onAction="#confirmDeleteEvent" prefHeight="50.0"
                 prefWidth="116.0" text="Confirm" AnchorPane.leftAnchor="140.0"/>
         <Label layoutX="134.0" layoutY="115.0" text="Event title" textFill="#030000">
             <font>

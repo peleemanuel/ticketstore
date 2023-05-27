@@ -60,7 +60,7 @@ public class DeleteEventController implements Initializable {
         try {
             String deletingEvent = eventChoiceBox.getValue();
             EventService.deleteEvent(deletingEvent);
-            errorLabel.setText("Deleted succesfully");
+            errorLabel.setText("Deleted successfully");
             delay.play();
         } catch (Exception exception) {
             errorLabel.setText("Cannot delete");
