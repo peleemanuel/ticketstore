@@ -13,12 +13,13 @@
                 <Font size="30.0"/>
             </font>
         </Label>
-        <Button layoutX="163.0" layoutY="178.0" mnemonicParsing="false" onAction="#goToRegister" text="Register">
+        <Button id="register" layoutX="163.0" layoutY="178.0" mnemonicParsing="false" onAction="#goToRegister"
+                text="Register">
             <font>
                 <Font size="20.0"/>
             </font>
         </Button>
-        <Button layoutX="340.0" layoutY="178.0" mnemonicParsing="false" onAction="#goToLogin" text="Login">
+        <Button id="login" layoutX="340.0" layoutY="178.0" mnemonicParsing="false" onAction="#goToLogin" text="Login">
             <font>
                 <Font size="20.0"/>
             </font>
