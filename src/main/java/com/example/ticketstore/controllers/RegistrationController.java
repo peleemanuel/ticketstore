@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -20,7 +21,7 @@ import java.io.IOException;
 public class RegistrationController {
 
     @FXML
-    private Text registrationMessage;
+    private Label registrationMessage;
     @FXML
     private PasswordField passwordField;
     @FXML
@@ -60,4 +61,9 @@ public class RegistrationController {
             e.printStackTrace();
         }
     }
+
+    public String getRegistrationMessage() {
+        return registrationMessage.getText();
+    }
+
 }
