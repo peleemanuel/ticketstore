@@ -47,7 +47,7 @@ public class RegistrationControllerTest {
     @Test
     public void testRegistrationSuccess(FxRobot robot) {
         //it is possible to have to rewrite the username
-        robot.clickOn("#usernameField").write("testuser4");
+        robot.clickOn("#usernameField").write("testuser7");
         robot.clickOn("#passwordField").write("password");
         robot.clickOn("#role").clickOn("Client");
         robot.clickOn("#registerButton");
