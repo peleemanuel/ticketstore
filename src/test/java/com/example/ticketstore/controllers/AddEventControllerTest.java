@@ -43,7 +43,7 @@ public class AddEventControllerTest {
     public void testSaveButtonSuccess(FxRobot robot) {
         // Mock event data
         //it is possible to have to rewrite the title in order to have successful test
-        String title = "Concert1";
+        String title = "Concert";
         String artist = "John Doe";
         String date = "2023-06-01";
         int ticketNumber = 100;
