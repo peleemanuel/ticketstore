@@ -31,6 +31,7 @@ public class AddEventController {
 
     @FXML
     public void switchToAdmin(ActionEvent event) throws IOException {
+        EventService.closeDatabase();
         Parent homeRoot = FXMLLoader.load(getClass().getResource("/com/example/ticketstore/fxmls/Admin.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(homeRoot);
@@ -54,7 +55,6 @@ public class AddEventController {
             EventService.loadEventsFromDatabase();
             EventService.addEvent(titleField.getText(), artistField.getText(), dateField.getText(), Integer.parseInt(ticketNumberField.getText()));
             errorLabel.setText("Event added!");
-            EventService.closeDatabase();
             delay.play();
         } catch (EventAlreadyExistsException ex) {
             errorLabel.setText(ex.getMessage());

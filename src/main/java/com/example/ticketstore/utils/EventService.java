@@ -25,6 +25,7 @@ public class EventService {
             eventRepository.insert(event);
         } catch (EmptyFieldsException | EventAlreadyExistsException e) {
             e.printStackTrace();
+            throw new EventAlreadyExistsException(title);
         }
 
     }
