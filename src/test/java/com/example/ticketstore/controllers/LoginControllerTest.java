@@ -26,7 +26,6 @@ public class LoginControllerTest {
     @Start
     void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("fxmls/Login.fxml"));
-        primaryStage.setTitle("Login Test");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
@@ -44,7 +43,7 @@ public class LoginControllerTest {
     }
 
     @Test
-    @DisplayName("Login as user")
+    @DisplayName("Trying to log in with a username that doesn't exist")
     void testLoginInvalidUsername(FxRobot robot) throws IOException {
         robot.clickOn("#username");
         robot.write("User invalid");
@@ -52,5 +51,16 @@ public class LoginControllerTest {
         robot.write("parola");
         robot.clickOn("#login");
         verifyThat("#lblError", LabeledMatchers.hasText("Username sau parola gresita!"));
+    }
+
+    @Test
+    @DisplayName("Logging in as an existing admin")
+    void testLoginSuccess(FxRobot robot) throws IOException {
+        robot.clickOn("#username");
+        robot.write("admin");
+        robot.clickOn("#password");
+        robot.write("123");
+        robot.clickOn("#login");
+        verifyThat("#pageTitle", LabeledMatchers.hasText("Admin Panel"));
     }
 }
