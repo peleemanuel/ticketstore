@@ -21,11 +21,18 @@ import java.io.IOException;
 public class LoginController {
 
     @FXML
-    private Label lblError;
+    public Label lblError;
     @FXML
-    private TextField usernameField;
+    public TextField usernameField;
     @FXML
-    private TextField passwordField;
+    public TextField passwordField;
+
+    public String getLblError() {
+        return this.lblError.getText();
+    }
+
+    public LoginController() {
+    }
 
     public void login(ActionEvent event) throws IOException {
         String username = usernameField.getText();
