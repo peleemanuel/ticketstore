@@ -17,7 +17,7 @@ public class EventService {
         eventRepository = db.getRepository(Event.class);
     }
 
-    public static void addEvent(String title, String artist, String data, int ticketNumbers) throws EventAlreadyExistsException, CouldNotWriteEventsException {
+    public static void addEvent(String title, String artist, String data, int ticketNumbers) throws EventAlreadyExistsException, CouldNotWriteEventsException, EmptyFieldsException {
 
         try {
             checkEventDoesNotAlreadyExistOrIsNull(title);
@@ -25,7 +25,7 @@ public class EventService {
             eventRepository.insert(event);
         } catch (EmptyFieldsException | EventAlreadyExistsException e) {
             e.printStackTrace();
-            throw new EventAlreadyExistsException(title);
+            throw e;
         }
 
     }
@@ -36,6 +36,7 @@ public class EventService {
         }
         catch (EventDoesNotExistsException e){
             e.printStackTrace();
+            throw e;
         }
     }
 

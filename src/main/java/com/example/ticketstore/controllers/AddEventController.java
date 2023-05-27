@@ -1,5 +1,6 @@
 package com.example.ticketstore.controllers;
 
+import com.example.ticketstore.exceptions.EmptyFieldsException;
 import com.example.ticketstore.exceptions.EventAlreadyExistsException;
 import com.example.ticketstore.utils.EventService;
 import javafx.animation.PauseTransition;
@@ -58,6 +59,8 @@ public class AddEventController {
             delay.play();
         } catch (EventAlreadyExistsException ex) {
             errorLabel.setText(ex.getMessage());
+        } catch (EmptyFieldsException ex) {
+            throw new RuntimeException(ex);
         }
     }
 
