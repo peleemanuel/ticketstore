@@ -9,7 +9,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.ticketstore.controllers.DeleteEventController">
     <children>
-        <Label layoutX="233.0" layoutY="45.0" text="Delete event" textFill="#030000">
+        <Label id="pageTitle" layoutX="233.0" layoutY="45.0" text="Delete Event" textFill="#030000">
             <font>
                 <Font size="24.0"/>
             </font>

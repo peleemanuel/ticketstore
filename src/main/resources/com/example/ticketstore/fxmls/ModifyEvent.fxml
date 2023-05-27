@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.ticketstore.controllers.ModifyEventController">
     <children>
-        <Label layoutX="222.0" layoutY="32.0" text="Modify Event">
+        <Label id="pageTitle" layoutX="222.0" layoutY="32.0" text="Modify Event">
             <font>
                 <Font size="30.0" />
             </font>

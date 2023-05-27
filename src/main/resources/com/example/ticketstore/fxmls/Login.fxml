@@ -11,7 +11,7 @@
             prefWidth="543.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.ticketstore.controllers.LoginController">
     <children>
-        <Label alignment="CENTER" layoutX="200.0" layoutY="28.0" text="Login">
+        <Label id="pageTitle" alignment="CENTER" layoutX="200.0" layoutY="28.0" text="Login">
             <font>
                 <Font size="65.0"/>
             </font>
