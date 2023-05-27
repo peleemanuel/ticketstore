@@ -4,7 +4,6 @@ import com.example.ticketstore.exceptions.EventAlreadyExistsException;
 import com.example.ticketstore.utils.EventService;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

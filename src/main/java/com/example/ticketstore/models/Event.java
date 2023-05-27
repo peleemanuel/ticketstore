@@ -10,6 +10,7 @@ public class Event {
 
     private String data;
 
+
     private int ticketNumbers;
 
     public Event() {
@@ -37,4 +38,8 @@ public class Event {
     public String getTitle() {
         return title;
     }
+    public void setTicketNumbers(int ticketNumbers) {
+        this.ticketNumbers = ticketNumbers;
+    }
+
 }

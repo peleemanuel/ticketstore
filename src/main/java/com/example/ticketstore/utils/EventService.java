@@ -2,9 +2,7 @@ package com.example.ticketstore.utils;
 
 import com.example.ticketstore.exceptions.*;
 import com.example.ticketstore.models.Event;
-import org.dizitart.no2.Document;
 import org.dizitart.no2.Nitrite;
-import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.objects.filters.ObjectFilters;
 
@@ -55,22 +53,16 @@ public class EventService {
         }
 
     }
-
-    public  static boolean veifyEnoughSpaceAtConcert(String title, int wantedTickets){
+    public static boolean verifyEnoughSpaceAtConcert(String title, int wantedTickets){
         Event existingEvent = eventRepository.find(ObjectFilters.eq("title", title)).firstOrDefault();
         return wantedTickets <= existingEvent.getTicketNumbers();
     }
-    public static boolean checkEventExists(String title) throws UserDoesNotExistException {
-        // if the user is found then return True
+
+    public static void buyTickets(String title, int wantedTickets){
         Event existingEvent = eventRepository.find(ObjectFilters.eq("title", title)).firstOrDefault();
-
-        return existingEvent != null;
-    }
-
-    public static Event getEvent(String title) {
-        Event existingEvent = eventRepository.find(ObjectFilters.eq("title", title)).firstOrDefault();
-
-        return existingEvent;
+        int leftTickets = existingEvent.getTicketNumbers() - wantedTickets;
+        existingEvent.setTicketNumbers(leftTickets);
+        eventRepository.update(ObjectFilters.eq("title",existingEvent.getTitle()),existingEvent);
     }
 
     public static List<Event> getEvents() {
