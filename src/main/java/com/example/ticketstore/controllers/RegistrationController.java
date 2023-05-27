@@ -1,6 +1,7 @@
 package com.example.ticketstore.controllers;
 
 import com.example.ticketstore.Main;
+import com.example.ticketstore.exceptions.EmptyUsernameOrPasswordException;
 import com.example.ticketstore.exceptions.UsernameAlreadyExistsException;
 import com.example.ticketstore.utils.UserService;
 import javafx.event.ActionEvent;
@@ -42,6 +43,8 @@ public class RegistrationController {
             registrationMessage.setText("Account created successfully!");
         } catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
+        } catch (EmptyUsernameOrPasswordException e) {
+            throw new RuntimeException(e);
         } finally {
             UserService.closeDatabase();
         }

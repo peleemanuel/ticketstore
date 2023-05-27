@@ -25,22 +25,26 @@ public class UserService {
         userRepository = db.getRepository(User.class);
     }
 
-    public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException, CouldNotWriteUsersException {
+    public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException, EmptyUsernameOrPasswordException {
 
+        if (password.isEmpty())
+            throw new EmptyUsernameOrPasswordException();
         try {
             checkUserDoesNotAlreadyExistOrIsNull(username);
             User user = new User(username, encodePassword(username, password), role);
             userRepository.insert(user);
-        } catch (CouldNotWriteUsersException | EmptyUsernameOrPasswordException e) {
+        } catch (EmptyUsernameOrPasswordException e) {
             e.printStackTrace();
+            throw e;
         }
         closeDatabase();
 
     }
 
     private static void checkUserDoesNotAlreadyExistOrIsNull(String username) throws UsernameAlreadyExistsException, EmptyUsernameOrPasswordException {
-        if (username.isBlank())
+        if (username.isEmpty()) {
             throw new EmptyUsernameOrPasswordException();
+        }
 
         User existingUser = userRepository.find(ObjectFilters.eq("username", username)).firstOrDefault();
 
