@@ -54,7 +54,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="116.0" layoutY="289.0" mnemonicParsing="false" onAction="#buyTickets" prefHeight="54.0" prefWidth="108.0" text="Buy">
+      <Button id="buyTicketsButton" layoutX="116.0" layoutY="289.0" mnemonicParsing="false" onAction="#buyTickets" prefHeight="54.0" prefWidth="108.0" text="Buy">
          <font>
             <Font size="16.0" />
          </font>
