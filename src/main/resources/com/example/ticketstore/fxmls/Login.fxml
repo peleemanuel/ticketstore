@@ -27,9 +27,11 @@
             </font>
         </Label>
 
-        <TextField fx:id="usernameField" layoutX="209.0" layoutY="141.0" prefHeight="25.0" prefWidth="232.0"/>
-        <PasswordField fx:id="passwordField" layoutX="209.0" layoutY="177.0" prefHeight="26.0" prefWidth="232.0"/>
-        <Button fx:id="loginButton" layoutX="193.0" layoutY="279.0" mnemonicParsing="false" onAction="#login"
+        <TextField fx:id="usernameField" id="username" layoutX="209.0" layoutY="141.0" prefHeight="25.0"
+                   prefWidth="232.0"/>
+        <PasswordField fx:id="passwordField" id="password" layoutX="209.0" layoutY="177.0" prefHeight="26.0"
+                       prefWidth="232.0"/>
+        <Button fx:id="loginButton" id="login" layoutX="193.0" layoutY="279.0" mnemonicParsing="false" onAction="#login"
                 text="Login">
 
             <font>
@@ -42,7 +44,7 @@
                 <Font size="18.0"/>
             </font>
         </Button>
-        <Label fx:id="lblError" alignment="CENTER" layoutY="243.0" prefHeight="30.0" prefWidth="543.0">
+        <Label fx:id="lblError" id="mesaj" alignment="CENTER" layoutY="243.0" prefHeight="30.0" prefWidth="543.0">
             <font>
                 <Font size="20.0"/>
             </font>

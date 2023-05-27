@@ -33,6 +33,10 @@ public class LoginController {
     @FXML
     public TextField passwordField;
 
+    public String getLblError() {
+        return this.lblError.getText();
+    }
+
     public LoginController() {
     }
 
