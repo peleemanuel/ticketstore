@@ -38,19 +38,19 @@ public class UserPanelController implements Initializable {
     @FXML
     void search(ActionEvent event) {
         listView.getItems().clear();
-        listView.getItems().addAll(searchList(searchBar.getText(),eventLists));
+        listView.getItems().addAll(searchList(searchBar.getText(), eventLists));
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         EventService.loadEventsFromDatabase();
-         myList = EventService.getEvents();
+        myList = EventService.getEvents();
         for (Event event : myList) {
-            String tempFullName = event.getTitle() + ", " + event.getArtist() +  ", " + event.getData() ;
+            String tempFullName = event.getTitle() + ", " + event.getArtist() + ", " + event.getData();
             eventLists.add(tempFullName);
         }
         listView.getItems().addAll(eventLists);
-            listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
 
@@ -69,14 +69,13 @@ public class UserPanelController implements Initializable {
             int commaIndex = touchedConcertName.indexOf(",");
             String extractedString = touchedConcertName.substring(0, commaIndex);
 
-            for(Event events: myList){
-                if(events.getTitle().contains(extractedString)){
+            for (Event events : myList) {
+                if (events.getTitle().contains(extractedString)) {
                     ConcertViewController concertViewController = loader.getController();
                     concertViewController.setData(events);
                     break;
                 }
             }
-
 
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -111,5 +110,9 @@ public class UserPanelController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String getItems() {
+        return listView.getItems().toString();
     }
 }
